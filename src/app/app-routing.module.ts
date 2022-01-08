@@ -6,6 +6,10 @@ import { AddUserComponent } from './pages/user/add-user/add-user.component';
 
 const routes: Routes = [
   {
+    path:'',
+    component:HomeComponent
+  },
+  {
     path: 'home',
     component:HomeComponent
   },
