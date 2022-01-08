@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="title">
+    Home
+  </div>
+
+  <div class="sub-title">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero magna, tempor nec est vel, commodo iaculis
+    neque. Nunc et nibh aliquam
+  </div>
+
+  <div class="upper-section">
+    <div class="card" (click)="addUser()">
+      <mat-icon class="add-icon">add</mat-icon>
+      <div>
+        New User
+      </div>
+    </div>
+    <div id="recent-users">
+      Recent Users
+      <div class="users-section">
+        <div class="user-card" *ngFor="let user of users">
+          <div class="user-card-header">
+              <img src="assets/images/no-image.png" alt="User Image">
+          </div>
+          <div class="user-card-content">
+              {{user.name}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-section">
+    <div id="news-section">
+      <div class="title">
+        News
+      </div>
+      <div class="sub-title">
+        Be update of the app world
+      </div>
+      <div id="news-cards">
+        <div class="news-card" *ngFor="let blog of blogs">
+            <div class="news-card-header">
+                <img [src]="blog.imageUrl" alt="news Image">
+            </div>
+            <div class="news-card-content">
+                {{blog.title}}
+            </div>
+  
+        </div>
+
+      </div>
+    </div>
+    <div id="tutorials-section">
+      <div class="title">
+        Tutorials
+      </div>
+      <div class="sub-title">
+        discover how to use the CMS
+      </div>
+
+      <iframe id="tutorial-video" src="https://www.youtube.com/embed/RSTKJpW67Ms">
+    </iframe>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>

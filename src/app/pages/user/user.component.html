@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="title">
+    My user
+  </div>
+  <div class="sub-title">
+    Be update of the app world.
+  </div>
+  <div id="upper-bar"> 
+      <div id="navbar">
+        <div id="users-tab">All users</div>
+        <div>Outdoor Tours</div>
+        <div>Treasure Hunt Games</div>
+        <div>Indoor Tours & Games</div>
+        
+      </div>
+      <div id="add-search">
+          <!-- Filter -->
+          <div class="table-top" (keydown)="$event.stopPropagation()">
+            <div class="tt-filter">
+              <input [(ngModel)]="mainFilter" placeholder="Search" (change)="applyFilter()" class="tt-filter-input"
+                (click)="$event.stopPropagation()">
+            </div>
+          </div>
+          
+          
+            <button
+                mat-button
+                mat-raised-button
+                id="add-btn"
+                (click)="addUser()"
+            >
+                Add User
+                <mat-icon>add_circle</mat-icon>
+           </button>
+      </div>
+  </div>
+
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        {{ paginator.pageSize * paginator.pageIndex + i + 1 }}
+
+      </td>
+    </ng-container>
+
+
+    <!-- Nom Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let row;let i = index"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let row;let i = index"> {{row.email}} </td>
+    </ng-container>
+
+    <!-- Date Révision Column -->
+    <ng-container matColumnDef="Gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+      <td mat-cell *matCellDef="let row;let i = index"> {{row.gender}}
+      </td>
+    </ng-container>
+
+    <!-- Status column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let row;let i = index">
+        <span class="badge badge-pill status-pill"
+          [ngClass]="{ 'badge-warning': row.status ==='En cours' , 'badge-success': row.status ==='Validé' }">
+          {{row.status}}
+        </span>
+      </td>
+    </ng-container>
+
+
+    <!-- actions -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>
+        <div *ngIf="this.isLoading" class="loading-spinner spinner-border spinner-border-md" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        <div class="container actions-row">
+          <button mat-icon-button matTooltip="Edit user" (click)="editUser(row)" [disabled]="this.isLoading">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Delete user" (click)="deleteUser(row)" color="warn">
+            <mat-icon>delete_outline</mat-icon>
+            
+          </button>
+        </div>
+
+      </td>
+
+    </ng-container>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell noDataRow" colspan="6">Welcome to users module ! </td>
+    </tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>

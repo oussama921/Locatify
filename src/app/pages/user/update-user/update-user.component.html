@@ -1,0 +1,96 @@
+<div class="container">
+    <div>
+        <div class="title">
+            Update your user
+        </div>
+        <div class="sub-title">
+            Creator CMS is your hub for creating, managing and publishing location based tours, games and in-app content to mobile apps.
+        </div>
+    </div>
+    
+    <form id="form" [formGroup]="updateUserForm" >
+        <!-- Field Name -->
+        <div class="field">
+            <div class="title">
+                1.Enter a name for your user
+            </div>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput name="name" formControlName="name" required>
+                <mat-icon matSuffix>apartment</mat-icon>
+                <mat-error *ngIf="updateUserForm.get('name').hasError('required')">
+                    This field is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <!-- Field Email -->
+        <div class="field">
+            <div class="title">
+                2.Enter an email for your user
+            </div>
+        
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" formControlName="email" required>
+                <mat-icon matSuffix>apartment</mat-icon>
+                <mat-error *ngIf="updateUserForm.get('email').invalid">
+                    This field is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <!-- Field Gender -->
+         <div class="field">
+             <div class="title">
+                 3.Select the gender
+             </div>
+             <mat-form-field appearance="outline" class="full-width pt-2 pr-1">
+                 <mat-label>Gender</mat-label>
+                 <mat-select formControlName="gender" name="gender">
+                     <mat-option>Select Gender</mat-option>
+                     <mat-option value="male">Male</mat-option>
+                     <mat-option value="female">Female</mat-option>
+                 </mat-select>
+                 <mat-error *ngIf="updateUserForm.get('gender').hasError('required')">
+                     This field is <strong>required</strong>
+                 </mat-error>
+             </mat-form-field>
+        </div>
+    
+        <!-- Field Status -->
+        <div>
+            <div class="title">
+                4.Select the status
+            </div>
+            <mat-radio-group aria-label="Select an option" formControlName="status" name="status">
+        
+                <mat-radio-button class="mr-3" value="active">
+                    Active
+                </mat-radio-button>
+                
+                <mat-radio-button value="inactive">
+                    Inactive
+                </mat-radio-button>
+        
+            </mat-radio-group>
+        </div>
+        <br>
+        <button
+            mat-button
+            mat-raised-button
+            class="button"
+            [disabled]="updateUserForm.invalid"
+            (click)="updateUser()"
+        >
+            Update User
+        </button>
+
+        <button
+            mat-button
+            mat-raised-button
+            id="cancel"
+            (click)="cancel()"
+        >
+            Cancel
+        </button>
+    </form>
+</div>
