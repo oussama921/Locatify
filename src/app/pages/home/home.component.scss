@@ -27,7 +27,7 @@
     border-bottom: 1px solid #e7e5e5;
 }
 .card{
-    height:180px;
+    height:205px;
     width:200px;
     margin-right:10px;
     background:linear-gradient(#aec4ef,#698dd5);
@@ -53,7 +53,7 @@
 
 #recent-users{
     width:100%;
-    height:170px;
+    height:190px;
     background-color:white;
     border-radius: 10px;
     padding-left:25px;
@@ -68,7 +68,8 @@
     width:20%;
     margin-right:10px;
     max-width:130px;
-    box-shadow: 0px 0px 5px 0px rgba(227,227,227,0.75);}
+    box-shadow: 0px 0px 5px 0px rgba(227,227,227,0.75);
+}
 .user-card-header{
     background-color: #F4F4F4;
     display: flex;
@@ -86,6 +87,8 @@
     justify-content: center;
     padding:10px 0px 10px 0px;
     font-size:0.8em;
+    overflow:hidden;
+    height: 30px;
 }  
 .users-section{
     display:flex;

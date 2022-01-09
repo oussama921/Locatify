@@ -11,13 +11,13 @@
     <form id="form" [formGroup]="addUserForm" >
         <!-- Field Name -->
         <div class="field">
-            <div class="title">
-                1.Enter a name for your user
+            <div class="field-title">
+                1. Enter a name for your user
             </div>
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline" >
                 <mat-label>Name</mat-label>
                 <input matInput name="name" formControlName="name" required>
-                <mat-icon matSuffix>apartment</mat-icon>
+                <mat-icon matSuffix>person</mat-icon>
                 <mat-error *ngIf="addUserForm.get('name').hasError('required')">
                     This field is <strong>required</strong>
                 </mat-error>
@@ -25,14 +25,14 @@
         </div>
          <!-- Field Email -->
         <div class="field">
-            <div class="title">
-                2.Enter an email for your user
+            <div class="field-title">
+                2. Enter an email for your user
             </div>
         
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput name="email" formControlName="email" required>
-                <mat-icon matSuffix>apartment</mat-icon>
+                <mat-icon matSuffix>email</mat-icon>
                 <mat-error *ngIf="addUserForm.get('email').invalid">
                     This field is <strong>required</strong>
                 </mat-error>
@@ -40,8 +40,8 @@
         </div>
          <!-- Field Gender -->
          <div class="field">
-             <div class="title">
-                 3.Select the gender
+             <div class="field-title">
+                 3. Select the gender
              </div>
              <mat-form-field appearance="outline" class="full-width pt-2 pr-1">
                  <mat-label>Gender</mat-label>
@@ -58,8 +58,8 @@
     
         <!-- Field Status -->
         <div>
-            <div class="title">
-                4.Select the status
+            <div class="field-title">
+                4. Select the status
             </div>
             <mat-radio-group aria-label="Select an option" formControlName="status" name="status">
         
