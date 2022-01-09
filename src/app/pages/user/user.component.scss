@@ -1,8 +1,12 @@
 .container{
     padding-right:40px;
+    padding-left:10px;
+    padding-top:40px;
 }
 table{
-    width:100%
+    width:79%;
+    height:50%;
+    margin-top: 50px;
 }
 
 .noDataRow {
@@ -35,23 +39,42 @@ table{
   
   .mat-column-Actions {
     width: 15%;
-    text-align: center;
+    padding-top: 0px !important;
   }
   .tt-filter-input {
     flex: 1 1 0%;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 10px;
     line-height: 1.125;
-    border: none;
+    border: 1px solid #bfbebe;
     height: 32px;
     pointer-events: visiblefill !important;
     border-radius: 10px;
     margin-right:5px;
+    padding-left: 10px;
+    width: 100px;
     
 }
 #add-btn{
     background:#6a8ed3;
-    color:white
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 0px 5px 0px 10px;
+    border-radius:8px ;
+    margin-right: 50px;
+}
+#add-btn:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#add-btn mat-icon{
+    margin-left:10px;
+    margin-top: 2px;
+    font-size: 20px;
 }
 #upper-bar{
     display: flex;
@@ -65,11 +88,11 @@ table{
     margin-top:5px;
 }
 #navbar div{
-    font-size: 1.2em;
+    font-size: 1em;
+    font-weight: 600;
     padding-bottom: 0px;
     color:#bfbebe;
-    border-bottom: 1px solid #bfbebe;
-    margin-right:10px;
+    margin-right:40px;
 }
 #navbar div:hover{
     cursor: pointer;
@@ -87,11 +110,18 @@ table{
 
 .title{
     color:#656565;
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 1em;
+    font-weight:500;
     margin-bottom:5px;
+    margin-left:10px
 }
 .sub-title{
     color:#656565;
-    margin-bottom: 10px;;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+mat-paginator{
+    width:79%
 }

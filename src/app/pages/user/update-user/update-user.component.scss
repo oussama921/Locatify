@@ -1,41 +1,52 @@
-.container{
-    padding-right:40px;
+.container {
+  padding-right: 40px;
+  padding-left: 10px;
+  padding-top: 40px;
 }
 
-#form{
-    background-color: white;
-    padding:20px;
-    border-radius:10px ;
-    color:#676767;
+#form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  color: #676767;
 }
 
-.field{
-    border-bottom: 1px solid #e7e5e5;
-    margin-bottom: 20px;
-}
-.title{
-    margin-bottom:10px
-}
-mat-radio-button{
-    margin-left:15px;
-}
-.button{
-    background:#6a8ed3;
-    color:white
+.field {
+  border-bottom: 1px solid #e7e5e5;
+  margin-bottom: 20px;
 }
 
-#cancel{
-    margin-left:10px;
+mat-radio-button {
+  margin-left: 15px;
 }
 
-
-.title{
-    color:#656565;
-    font-size: 1.5em;
-    font-weight: 500;
-    margin-bottom:5px;
+.button {
+  background: #6a8ed3;
+  color: white
 }
-.sub-title{
-    color:#656565;
-    margin-bottom: 10px;;
+
+.title {
+
+  color: #656565;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 5px;
+  margin-left: 10px
+}
+
+.sub-title {
+  color: #656565;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.field-title {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.field mat-form-field {
+  width: 30%;
+  font-size: 10px;
 }

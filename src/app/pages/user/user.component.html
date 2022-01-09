@@ -22,16 +22,14 @@
             </div>
           </div>
           
-          
-            <button
-                mat-button
-                mat-raised-button
-                id="add-btn"
-                (click)="addUser()"
+            <div          
+              (click)="addUser()"
+              id="add-btn"
             >
-                Add User
-                <mat-icon>add_circle</mat-icon>
-           </button>
+              New User
+              <mat-icon>add_circle</mat-icon>
+            </div>
+            
       </div>
   </div>
 
@@ -40,10 +38,13 @@
     <!-- ID Column -->
 
     <ng-container matColumnDef="ID">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+        <mat-checkbox>
+        </mat-checkbox>
+      </th>
       <td mat-cell *matCellDef="let row; let i = index">
-        {{ paginator.pageSize * paginator.pageIndex + i + 1 }}
-
+        <mat-checkbox>
+        </mat-checkbox>
       </td>
     </ng-container>
 
@@ -87,7 +88,7 @@
         </div>
       </th>
       <td mat-cell *matCellDef="let row; let i = index">
-        <div class="container actions-row">
+        <div>
           <button mat-icon-button matTooltip="Edit user" (click)="editUser(row)" [disabled]="this.isLoading">
             <mat-icon>edit</mat-icon>
           </button>
