@@ -1,0 +1,33 @@
+mat-drawer-content{
+    margin-top :0px !important;;
+}
+
+.mob-upper-bar-container{
+    position:fixed;
+    top:0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	background-color: #F5F5F5;
+	box-shadow: 0px -20px 30px black;
+	height: 35px;
+}
+
+#mob-settings-btn{
+    position:absolute;
+    right: 0;
+    top:5px;
+}
+
+
+#mob-menu-btn{
+    position:absolute;
+    left:10px;
+    top:5px;
+}
+
+#mob-router{
+    margin-top: 40px;
+}

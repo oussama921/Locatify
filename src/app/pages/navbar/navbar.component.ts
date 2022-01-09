@@ -1,21 +1,22 @@
-import { MediaMatcher } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MenuPathElement } from 'src/app/models/navbar.model';
 import { SidenavService } from 'src/app/services/sidenav.service';
 
 @Component({
   selector: 'navbar',
 
-  styleUrls: ['navbar.component.scss'],
+  styleUrls: ['navbar.component.scss','navbar.mobile.component.scss'],
   templateUrl: 'navbar.component.html',
 })
 export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('notifSidenav') notifSideNav: MatSidenav;
 
+  isXSmall : boolean;
   mobileQuery: MediaQueryList;
   homePageActive = true;
   isMenuOpened = false;
@@ -29,16 +30,15 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   notSeenCounter = 0;
   isModuleLoading: boolean;
 
-  private mobileQueryListener: () => void;
-
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     private router: Router,
     private sidenavService: SidenavService,
-    private toaster: ToastrService
-  ) {}
+    private breakpointObserver: BreakpointObserver
+  ) {
+  }
 
   ngOnInit() {
     this.checkRouterForModuleLoaded();
@@ -49,9 +49,11 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.currentRoute = this.router.url;
-    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
-    this.mobileQueryListener = () => this.changeDetectorRef.detectChanges();
-    this.mobileQuery.addEventListener('change', this.mobileQueryListener);
+
+    
+    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe(res=>{
+      this.isXSmall = res.matches;
+    })
   }
 
   ngAfterViewInit() {
@@ -119,7 +121,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
 
     if (this.routerSubActive) {
       this.routerSubActive.unsubscribe();

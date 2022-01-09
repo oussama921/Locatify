@@ -27,6 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
 import { NewsService } from './services/news.service';
 import { NotFoundComponentComponent } from './pages/not-found-component/not-found-component.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 /************************************* */
 const MaterialModules=[
@@ -39,7 +40,8 @@ const MaterialModules=[
   MatInputModule,
   MatSelectModule,
   MatRadioModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSidenavModule
 ]
 
 @NgModule({
@@ -59,6 +61,7 @@ const MaterialModules=[
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    
   ],
   providers: [
     SidenavService,

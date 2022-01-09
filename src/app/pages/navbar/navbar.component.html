@@ -1,74 +1,102 @@
-<div id="upper-bar">
-  <div class="upper-bar-container"  [ngClass]="{ 'flex-locked': isMenuOpened, 'flex-unlocked': !isMenuOpened }">
-    
-    <div  
-      id="upper-bar-logo"
-      *ngIf="!isMenuOpened && !isMenuLocked" 
-      [ngClass]="{ 'menu-locked': isMenuLocked, 'menu-unlocked': !isMenuLocked }"
-    >
-      <img 
-        id="upper-bar-logo" 
-        src="assets/images/logo_upper_bar.png" 
-        alt="locatify logo"
-      >
+<div *ngIf="!isXSmall; else XSNav">
+
+  <div class="upper-bar-container" [ngClass]="{ 'flex-locked': isMenuOpened, 'flex-unlocked': !isMenuOpened }">
+
+    <div id="upper-bar-logo" *ngIf="!isMenuOpened && !isMenuLocked"
+      [ngClass]="{ 'menu-locked': isMenuLocked, 'menu-unlocked': !isMenuLocked }">
+
+      <img id="upper-bar-logo" src="assets/images/logo_upper_bar.png" alt="locatify logo">
     </div>
     <div>
       <button mat-button id="settings-btn" aria-label="settings dropdown" [matMenuTriggerFor]="beforeMenu">
         Sam Liddell
         <mat-icon class="material-icons">keyboard_arrow_down</mat-icon>
       </button>
-      
-      <button mat-raised-button id="premium-btn" >Premium</button>
+
+      <button mat-raised-button id="premium-btn">Premium</button>
 
     </div>
 
     <mat-menu #beforeMenu="matMenu" xPosition="before">
-       
+
       <button mat-menu-item aria-label="logout button">
-        Logout  
+        Logout
       </button>
     </mat-menu>
   </div>
-</div>
-<nav class="navbar" [ngClass]="{ 'locked-menu': isMenuLocked }" (mouseenter)="open()" (mouseleave)="close()">
-  <ul class="navbar-nav">
-    <li class="logo">
-      <a class="navbar-brand">
-        <div class="logo">
-          <mat-icon id="menu-icon" *ngIf="!isMenuOpened && !isMenuLocked">menu</mat-icon>
-         
-          <img 
-            id="menu_logo"
-            src="assets/images/logo_menu.png" 
-            alt="locatify" 
-            *ngIf="isMenuOpened || isMenuLocked"
-          >
-          <button class="buttonMenu" mat-icon-button (click)="isMenuLocked = !isMenuLocked"
-            *ngIf="isMenuOpened || isMenuLocked">
-            <mat-icon class="lock">{{ isMenuLocked ? "lock" : "lock_open" }}</mat-icon>
-          </button>
-        </div>
-      </a>
-    </li>
+  <nav class="navbar" [ngClass]="{ 'locked-menu': isMenuLocked }" (mouseenter)="open()" (mouseleave)="close()">
+    <ul class="navbar-nav">
+      <li class="logo">
+        <a class="navbar-brand">
+          <div class="logo">
+            <mat-icon id="menu-icon" *ngIf="!isMenuOpened && !isMenuLocked">menu</mat-icon>
 
-    <li *ngFor="let nav of menuContent" 
-      class="nav-item"
-      [ngClass]="{ 'last-item': nav.path === 'help', 'help-menu-container':nav.path=='help' }"
-      (click)="resetMenu(nav.path)">
-      <a class="nav-link" [ngClass]="{ 'selectedMenu': nav.selected , 'help-menu-element':nav.path==='help'  }">
-        <mat-icon class="menu-element-icon">
-          {{ nav.icon }}
-        </mat-icon>
-        <span class="link-text" *ngIf="nav.path!='help'">{{ nav.name }}</span>
-        <div *ngIf="nav.path=='help'">Help</div>
-      </a>
-    </li>
-  </ul>
-</nav>
-<mat-sidenav-container [ngClass]="{ 'main-content-locked': isMenuLocked }" class="sidenav-container">
+            <img id="menu_logo" src="assets/images/logo_menu.png" alt="locatify" *ngIf="isMenuOpened || isMenuLocked">
+            <button class="buttonMenu" mat-icon-button (click)="isMenuLocked = !isMenuLocked"
+              *ngIf="(isMenuOpened || isMenuLocked)  ">
+              <mat-icon class="lock">{{ isMenuLocked ? "lock" : "lock_open" }}</mat-icon>
+            </button>
+          </div>
+        </a>
+      </li>
 
-
+      <li *ngFor="let nav of menuContent" class="nav-item"
+        [ngClass]="{ 'last-item': nav.path === 'help', 'help-menu-container':nav.path=='help' }"
+        (click)="resetMenu(nav.path)">
+        <a class="nav-link" [ngClass]="{ 'selectedMenu': nav.selected , 'help-menu-element':nav.path==='help'  }">
+          <mat-icon class="menu-element-icon">
+            {{ nav.icon }}
+          </mat-icon>
+          <span class="link-text" *ngIf="nav.path!='help'">{{ nav.name }}</span>
+          <div *ngIf="nav.path=='help'">Help</div>
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div id="router" [ngClass]="{ 'menu-locked': isMenuLocked, 'menu-unlocked': !isMenuLocked }">
     <router-outlet></router-outlet>
   </div>
-</mat-sidenav-container>
+</div>
+<ng-template #XSNav>
+
+
+  <mat-drawer-container>
+    <mat-drawer #drawer mode="over">I'm a drawer</mat-drawer>
+    <mat-drawer-content>
+
+      <div class="mob-upper-bar-container">
+
+        <button mat-button id="mob-menu-btn" (click)="drawer.toggle()">
+          <mat-icon  >menu</mat-icon>
+        </button>
+
+        <div id="mob-upper-bar-logo">
+
+          <img id="upper-bar-logo" src="assets/images/logo_upper_bar.png" alt="locatify logo">
+        </div>
+        <div id="mob-settings-btn">
+          <button mat-button  aria-label="settings dropdown" [matMenuTriggerFor]="beforeMenu">
+            Sam Liddell
+            <mat-icon class="material-icons">keyboard_arrow_down</mat-icon>
+          </button>
+
+          <!-- <button mat-raised-button id="premium-btn">Premium</button> -->
+
+        </div>
+
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+
+          <button mat-menu-item aria-label="logout button">
+            Logout
+          </button>
+        </mat-menu>
+      </div>
+
+      <div id="mob-router" >
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+</ng-template>
