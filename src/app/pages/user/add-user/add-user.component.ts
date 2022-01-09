@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,16 +15,24 @@ export class AddUserComponent implements OnInit {
 
   addUserForm:FormGroup;
   loading:boolean=false;
-
+  isXSmall:boolean;
+  
   constructor(
     private fb:FormBuilder,
     private userService:UserService,
     private toastr:ToastrService,
-    private router:Router
+    private router:Router,
+
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
     this.initForm();
+
+    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe(res=>{
+      this.isXSmall = res.matches;
+    })
+    
   }
 
   initForm(){

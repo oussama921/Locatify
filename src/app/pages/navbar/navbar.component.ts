@@ -1,9 +1,8 @@
-import { BreakpointObserver, Breakpoints, BreakpointState, MediaMatcher } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Observable, Subscription } from 'rxjs';
+import {  Subscription } from 'rxjs';
 import { MenuPathElement } from 'src/app/models/navbar.model';
 import { SidenavService } from 'src/app/services/sidenav.service';
 
@@ -32,8 +31,6 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private media: MediaMatcher,
     private router: Router,
     private sidenavService: SidenavService,
     private breakpointObserver: BreakpointObserver

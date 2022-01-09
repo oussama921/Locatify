@@ -1,0 +1,75 @@
+.mob-container{
+    padding-right:40px;
+    padding-top:20px;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+}
+.mob-upper-section{
+    width:100%;
+}
+
+
+#mob-recent-users{
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.mob-users-section{
+    display: flex;
+    flex-wrap:wrap ;
+}
+
+#mob-add-btn{
+    background:#6a8ed3;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 0px 5px 0px 10px;
+    border-radius:8px ;
+    margin-top:-5px;
+}
+
+#mob-add-btn mat-icon{
+    margin-left:10px;
+    font-size: 15px;
+    padding-top: 8px;
+}
+.mob-recent-project-title{
+    color:#656565;
+    font-size: 0.9em;
+    font-weight:600;
+    margin-bottom:5px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.mob-user-card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    font-size:0.8em;
+    overflow:hidden;
+    word-wrap:break-word;
+    text-overflow:ellipsis;
+    height: 30px;
+}
+
+
+.upper-space{
+    margin-top: 20px;
+}
+
+.mob-lower-section-title{
+    color:#656565;
+    font-size: 1em;
+    font-weight:600;
+    margin-bottom:5px;
+    margin-top:20px;
+}

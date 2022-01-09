@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isXSmall">
   <div class="title">
     Home
   </div>
@@ -22,10 +22,10 @@
       <div class="users-section">
         <div class="user-card" *ngFor="let user of users">
           <div class="user-card-header">
-              <img src="assets/images/no-image.png" alt="User Image">
+            <img src="assets/images/no-image.png" alt="User Image">
           </div>
           <div class="user-card-content">
-              {{user.name}}
+            {{user.name}}
           </div>
 
         </div>
@@ -43,13 +43,13 @@
       </div>
       <div id="news-cards">
         <div class="news-card" *ngFor="let blog of blogs">
-            <div class="news-card-header">
-                <img [src]="blog.imageUrl" alt="news Image">
-            </div>
-            <div class="news-card-content">
-                {{blog.title}}
-            </div>
-  
+          <div class="news-card-header">
+            <img [src]="blog.imageUrl" alt="news Image">
+          </div>
+          <div class="news-card-content">
+            {{blog.title}}
+          </div>
+
         </div>
 
       </div>
@@ -63,10 +63,76 @@
       </div>
 
       <iframe id="tutorial-video" src="https://www.youtube.com/embed/RSTKJpW67Ms">
-    </iframe>
+      </iframe>
     </div>
     <div>
 
     </div>
   </div>
+</div>
+
+
+<div class="mob-container" *ngIf="isXSmall">
+  <div class="title">
+    Home
+  </div>
+
+  <div class="sub-title">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec libero magna, tempor nec est vel, commodo iaculis
+    neque. Nunc et nibh aliquam
+  </div>
+
+  <div class="mob-upper-section">
+    <div id="mob-recent-users">
+      <div class="mob-recent-project-title">
+        <div>
+          Recent Users
+        </div>
+        <div (click)="addUser()" id="mob-add-btn">
+          New User
+          <mat-icon>add_circle</mat-icon>
+        </div>
+      </div>
+      <div class="mob-users-section">
+        <div class="user-card" *ngFor="let user of users">
+          <div class="user-card-header">
+            <img src="assets/images/no-image.png" alt="User Image">
+          </div>
+          <div class="mob-user-card-content">
+            {{user.name}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-section-title upper-space">
+    News
+  </div>
+  <div class="sub-title">
+    Be update of the app world
+  </div>
+  <div id="news-cards">
+    <div class="news-card" *ngFor="let blog of blogs">
+      <div class="news-card-header">
+        <img [src]="blog.imageUrl" alt="news Image">
+      </div>
+      <div class="news-card-content">
+        {{blog.title}}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="mob-lower-section-title">
+    Tutorials
+  </div>
+  <div class="sub-title">
+    discover how to use the CMS
+  </div>
+
+  <iframe id="tutorial-video" src="https://www.youtube.com/embed/RSTKJpW67Ms">
+  </iframe>
 </div>
