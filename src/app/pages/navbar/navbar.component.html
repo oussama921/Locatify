@@ -61,7 +61,22 @@
 
 
   <mat-drawer-container>
-    <mat-drawer #drawer mode="over">I'm a drawer</mat-drawer>
+    <mat-drawer #drawer mode="over" >
+      <ul class="navbar-nav  ">
+        <li *ngFor="let nav of menuContent" class="nav-item"
+          [ngClass]="{ 'mob-last-item': nav.path === 'help', 'help-menu-container':nav.path=='help' }"
+          (click)="resetMenu(nav.path)">
+          <a class="nav-link" [ngClass]="{ 'selectedMenu': nav.selected , 'help-menu-element':nav.path==='help'  }">
+            <mat-icon class="menu-element-icon">
+              {{ nav.icon }}
+            </mat-icon>
+            <span class="mob-link-text" *ngIf="nav.path!='help'">{{ nav.name }}</span>
+            <div *ngIf="nav.path=='help'">Help</div>
+          </a>
+        </li>
+      </ul>
+
+    </mat-drawer>
     <mat-drawer-content>
 
       <div class="mob-upper-bar-container">
