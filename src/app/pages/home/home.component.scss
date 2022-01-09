@@ -1,20 +1,28 @@
 .container{
     padding-right:40px;
     padding-top:20px;
+    padding-left: 10px;
 }
 
 .title{
     color:#656565;
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 1.3em;
+    font-weight:600;
+    margin-bottom:5px;
+}
+.lower-section-title{
+    color:#656565;
+    font-size: 1em;
+    font-weight:600;
     margin-bottom:5px;
 }
 .sub-title{
     color:#656565;
-    margin-bottom: 10px;;
+    font-size:0.9em;
 }
 .upper-section{
     display: flex;
+    margin-top:40px;
     padding-bottom: 30px;
     border-bottom: 1px solid #e7e5e5;
 }
@@ -76,8 +84,8 @@
 .user-card-content{
     display: flex;
     justify-content: center;
-    padding:10px 0px 10px 0px
-
+    padding:10px 0px 10px 0px;
+    font-size:0.8em;
 }  
 .users-section{
     display:flex;
@@ -129,9 +137,10 @@
 .news-card-content{
     display: flex;
     justify-content: center;
-    padding:10px 0px 10px 0px;
+    padding:10px 10px 10px 10px;
     background-color:white;
     border-radius:10px;
+    font-size: 0.9em;
 } 
 #news-cards{
     display: flex;;
@@ -143,4 +152,12 @@
     border-radius: 10px;
     border:0px;
     box-shadow: 0px 0px 5px 0px rgba(227,227,227,0.75);
+    margin-top: 10px;;
+}
+
+.recent-project-title{
+    color:#656565;
+    font-size: 0.9em;
+    font-weight:600;
+    margin-bottom:5px;
 }

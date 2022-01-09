@@ -1,8 +1,16 @@
-<mat-progress-bar *ngIf="isModuleLoading" mode="indeterminate" color="#aa076b"></mat-progress-bar>
 <div id="upper-bar">
   <div class="upper-bar-container"  [ngClass]="{ 'flex-locked': isMenuOpened, 'flex-unlocked': !isMenuOpened }">
-    <div id="upper-bar-logo" *ngIf="!isMenuOpened && !isMenuLocked" [ngClass]="{ 'menu-locked': isMenuLocked, 'menu-unlocked': !isMenuLocked }">
-      Locatify
+    
+    <div  
+      id="upper-bar-logo"
+      *ngIf="!isMenuOpened && !isMenuLocked" 
+      [ngClass]="{ 'menu-locked': isMenuLocked, 'menu-unlocked': !isMenuLocked }"
+    >
+      <img 
+        id="upper-bar-logo" 
+        src="assets/images/logo_upper_bar.png" 
+        alt="locatify logo"
+      >
     </div>
     <div>
       <button mat-button id="settings-btn" aria-label="settings dropdown" [matMenuTriggerFor]="beforeMenu">
@@ -28,9 +36,13 @@
       <a class="navbar-brand">
         <div class="logo">
           <mat-icon id="menu-icon" *ngIf="!isMenuOpened && !isMenuLocked">menu</mat-icon>
-          <a routerLink="/home" (click)="resetMenu('/home')">
-            <span id="logoText" *ngIf="isMenuOpened || isMenuLocked">Locatify</span>
-          </a>
+         
+          <img 
+            id="menu_logo"
+            src="assets/images/logo_menu.png" 
+            alt="locatify" 
+            *ngIf="isMenuOpened || isMenuLocked"
+          >
           <button class="buttonMenu" mat-icon-button (click)="isMenuLocked = !isMenuLocked"
             *ngIf="isMenuOpened || isMenuLocked">
             <mat-icon class="lock">{{ isMenuLocked ? "lock" : "lock_open" }}</mat-icon>
@@ -39,15 +51,16 @@
       </a>
     </li>
 
-    <li *ngFor="let nav of menuContent" [ngClass]="{ 'last-item': nav.path === 'help' }" class="nav-item"
+    <li *ngFor="let nav of menuContent" 
+      class="nav-item"
+      [ngClass]="{ 'last-item': nav.path === 'help', 'help-menu-container':nav.path=='help' }"
       (click)="resetMenu(nav.path)">
-      <a class="nav-link" [ngClass]="{ selectedMenu: nav.selected }">
-        <mat-icon aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img"
-          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cat fa-w-16 fa-9x"
-          [ngClass]="{ 'menu-element-icon': isMenuLocked, 'menu-element-icon-locked': !isMenuLocked }">
+      <a class="nav-link" [ngClass]="{ 'selectedMenu': nav.selected , 'help-menu-element':nav.path==='help'  }">
+        <mat-icon class="menu-element-icon">
           {{ nav.icon }}
         </mat-icon>
-        <span class="link-text">{{ nav.name }}</span>
+        <span class="link-text" *ngIf="nav.path!='help'">{{ nav.name }}</span>
+        <div *ngIf="nav.path=='help'">Help</div>
       </a>
     </li>
   </ul>

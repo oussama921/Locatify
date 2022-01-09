@@ -18,8 +18,8 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
   homePageActive = true;
-  isMenuOpened = true;
-  isMenuLocked = true;
+  isMenuOpened = false;
+  isMenuLocked = false;
   logoImgSrc = 'assets/images/planProLogo3.webp';
   state = 'closed';
   locked = true;
@@ -75,37 +75,37 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       {
         name: 'Home',
         path: 'home',
-        icon: 'bubble_chart',
+        icon: 'home',
         selected: !!this.currentRoute.match('/home') || false,
       },
       {
         name: 'Add User',
         path: 'add-user',
-        icon: 'category',
+        icon: 'add_circle_outline',
         selected: !!this.currentRoute.match('/add-user') || false,
       },
       {
         name: 'Users',
         path: 'users',
-        icon: 'assignment',
+        icon: 'layers',
         selected: !!this.currentRoute.match('/users') || false,
       },
       {
         name: 'Phone Menu',
         path: 'phone',
-        icon: 'supervisor_account',
+        icon: 'phone_iphone',
         selected: !!this.currentRoute.match('/phone') || false,
       },
       {
         name: 'Game Center',
         path: 'game-center',
-        icon: 'check_circle',
+        icon: 'videogame_asset',
         selected: !!this.currentRoute.match('/game-center') || false,
       },
       {
         name: 'Audio',
         path: 'audio',
-        icon: 'folder',
+        icon: 'headset_mic',
         selected: !!this.currentRoute.match('/audio') || false,
       },
       
