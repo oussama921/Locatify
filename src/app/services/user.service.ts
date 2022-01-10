@@ -23,7 +23,6 @@ export class UserService{
     }
 
     addUser(form:User){
-        console.log(form)
         return this.http.post<UserAddResponse>(this.api,form);
     }
     

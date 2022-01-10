@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -13,17 +14,23 @@ import { UserService } from 'src/app/services/user.service';
 export class UpdateUserComponent implements OnInit {
 
   updateUserForm:FormGroup;
+  isXSmall:boolean;
 
   constructor(
     private fb:FormBuilder,
     private dialogRef: MatDialogRef<UpdateUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
 		private toastr: ToastrService,
-    private userService:UserService
+    private userService:UserService,
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
     this.initForm();
+
+    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe(res=>{
+      this.isXSmall = res.matches;
+    })
   }
 
   initForm(){

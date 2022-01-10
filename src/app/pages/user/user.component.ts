@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,7 +13,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  styleUrls: ['./user.component.scss','./user.mobile.component.scss'],
 })
 export class UserComponent implements OnInit {
 
@@ -26,6 +27,7 @@ export class UserComponent implements OnInit {
   isLoading = false;
   data: any = null;
 
+  isXSmall:boolean;
   // filter Attributes
   panelOpenState = false;
 
@@ -36,12 +38,17 @@ export class UserComponent implements OnInit {
     private userService: UserService,
     public dialog: MatDialog,
     private toastr: ToastrService,
-    private router: Router) {
+    private router: Router,
+    private breakpointObserver: BreakpointObserver
+    ) {
 
   }
 
   ngOnInit() {
     this.reloadList();
+    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe(res=>{
+      this.isXSmall = res.matches;
+    })
   }
 
   ngAfterViewInit() {

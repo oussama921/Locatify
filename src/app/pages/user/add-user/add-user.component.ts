@@ -49,7 +49,6 @@ export class AddUserComponent implements OnInit {
       this.loading=true;
 
       this.userService.addUser(<User>this.addUserForm.value).subscribe((res)=>{
-        console.log(res)
         if(res.data){
           this.toastr.success('User added successfully.');
           this.router.navigate(['users'])

@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((blogsList:any)=>{
-      console.log(blogsList)
       this.blogs = blogsList.data.slice(0,3);
     });
 

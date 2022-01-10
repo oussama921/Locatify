@@ -1,0 +1,58 @@
+
+.mob-table{
+    width:100%;
+    overflow-x: auto;
+}
+
+#mob-navbar{
+    display: flex;
+    justify-content: start;
+    margin-top:5px;
+}
+
+#mob-navbar div{
+    font-size: 0.8em;
+    margin-right:12px;
+    font-weight: 600;
+    padding-bottom: 0px;
+    color:#bfbebe;
+}
+
+.mob-full-width{
+    width:100%
+}
+
+.mob-add-btn{
+    margin:0 0 0 10px !important;
+    width: 30%;
+}
+
+  .table-mob{
+
+  }
+
+  .ID{
+      padding-right:50px;
+  }
+  .Name{
+    padding-right:50px;
+  }
+  .Email{
+    padding-right:50px;
+  }
+  .Gender{
+    padding-right:50px;
+  }
+  .Status{
+    padding-right:50px;
+  }
+  .Actions{
+    padding-right:50px;
+  }
+
+  .mob-actions-layout{
+      display: flex;
+  }
+  .mob-paginator{
+      width:calc(100% + 386px);
+  }

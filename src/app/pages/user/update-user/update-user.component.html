@@ -14,7 +14,7 @@
             <div class="title">
                 1.Enter a name for your user
             </div>
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline" [ngClass]="{'full-width':isXSmall}">
                 <mat-label>Name</mat-label>
                 <input matInput name="name" formControlName="name" required>
                 <mat-icon matSuffix>apartment</mat-icon>
@@ -29,7 +29,7 @@
                 2.Enter an email for your user
             </div>
         
-            <mat-form-field appearance="outline" class="full-width">
+            <mat-form-field appearance="outline" [ngClass]="{'full-width':isXSmall}">
                 <mat-label>Email</mat-label>
                 <input matInput name="email" formControlName="email" required>
                 <mat-icon matSuffix>apartment</mat-icon>
@@ -43,7 +43,7 @@
              <div class="title">
                  3.Select the gender
              </div>
-             <mat-form-field appearance="outline" class="full-width pt-2 pr-1">
+             <mat-form-field appearance="outline" [ngClass]="{'full-width':isXSmall}">
                  <mat-label>Gender</mat-label>
                  <mat-select formControlName="gender" name="gender">
                      <mat-option>Select Gender</mat-option>
